@@ -1,0 +1,207 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Only</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 2rem;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1rem;
+            width: 80%;
+            max-width: 500px;
+            margin-bottom: 20px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            color: #111;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #4db8ff;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #389ddc;
+        }
+
+        .status-message {
+            margin-top: 20px;
+            color: #4db8ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Only</h1>
+    <p>Update the link for the "Join the Game" button on the Condo Game page.</p>
+
+    <form id="updateLinkForm">
+        <input type="text" id="gameLink" placeholder="Enter the new game link..." required>
+        <br>
+        <button type="submit">Update Link</button>
+    </form>
+
+    <p id="statusMessage" class="status-message"></p>
+
+    <script>
+        const form = document.getElementById('updateLinkForm');
+        const statusMessage = document.getElementById('statusMessage');
+
+        form.onsubmit = async (event) => {
+            event.preventDefault();
+            const gameLink = document.getElementById('gameLink').value.trim();
+
+            if (!gameLink) {
+                alert('Please enter a valid link.');
+                return;
+            }
+
+            try {
+                // Envoi du nouveau lien vers l'API (POST)
+                const response = await fetch('/api/message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: gameLink })
+                });
+
+                if (!response.ok) throw new Error('Failed to update the link');
+
+                statusMessage.textContent = 'Game link updated successfully!';
+            } catch (error) {
+                console.error(error);
+                statusMessage.textContent = 'Error updating the game link. Please try again.';
+            }
+        };
+    </script>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Only</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 2rem;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1rem;
+            width: 80%;
+            max-width: 500px;
+            margin-bottom: 20px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            color: #111;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #4db8ff;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #389ddc;
+        }
+
+        .status-message {
+            margin-top: 20px;
+            color: #4db8ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Only</h1>
+    <p>Update the link for the "Join the Game" button on the Condo Game page.</p>
+
+    <form id="updateLinkForm">
+        <input type="text" id="gameLink" placeholder="Enter the new game link..." required>
+        <br>
+        <button type="submit">Update Link</button>
+    </form>
+
+    <p id="statusMessage" class="status-message"></p>
+
+    <script>
+        const form = document.getElementById('updateLinkForm');
+        const statusMessage = document.getElementById('statusMessage');
+
+        form.onsubmit = async (event) => {
+            event.preventDefault();
+            const gameLink = document.getElementById('gameLink').value.trim();
+
+            if (!gameLink) {
+                alert('Please enter a valid link.');
+                return;
+            }
+
+            try {
+                // Envoi du nouveau lien vers l'API (POST)
+                const response = await fetch('/api/message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: gameLink })
+                });
+
+                if (!response.ok) throw new Error('Failed to update the link');
+
+                statusMessage.textContent = 'Game link updated successfully!';
+            } catch (error) {
+                console.error(error);
+                statusMessage.textContent = 'Error updating the game link. Please try again.';
+            }
+        };
+    </script>
+</body>
+</html>
+>>>>>>> e0f745ac8eef12413829cbabcd9325cac9d58ebc
